@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JuaStoreX Customer Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <div class="brand">JS</div>
+      <p class="eyebrow">JUASTOREX CUSTOMER CENTER</p>
+      <h1>Cek pesanan & garansi</h1>
+      <p class="muted">Masukkan kode order dan WhatsApp yang digunakan saat membeli.</p>
+
+      <form id="checkForm">
+        <label for="orderCode">Kode order</label>
+        <input id="orderCode" required placeholder="Contoh: JSX-20260729-R0TU">
+
+        <label for="customerWa">Nomor WhatsApp</label>
+        <input id="customerWa" required inputmode="numeric" placeholder="Contoh: 085111662004">
+
+        <button type="submit">Cek sekarang</button>
+      </form>
+      <p id="message" class="message"></p>
+    </section>
+
+    <section id="orderResult" class="card hidden">
+      <p class="eyebrow">DETAIL PESANAN</p>
+      <div id="orderDetails" class="details"></div>
+      <hr>
+      <h2>Ajukan klaim garansi</h2>
+
+      <form id="claimForm">
+        <label for="claimReason">Alasan kendala</label>
+        <textarea id="claimReason" required rows="4" placeholder="Jelaskan kendala dengan jelas"></textarea>
+
+        <label for="claimPhoto">Foto bukti kendala</label>
+        <label class="photo-picker" for="claimPhoto">
+          <span id="photoText">Pilih foto atau screenshot</span>
+          <small>JPG, PNG, atau WEBP • Maksimal 5 MB</small>
+        </label>
+        <input id="claimPhoto" class="hidden-input" type="file"
+               accept="image/jpeg,image/png,image/webp" required>
+
+        <div id="photoPreview" class="preview"></div>
+        <button id="claimButton" type="submit">Kirim klaim</button>
+      </form>
+      <p id="claimMessage" class="message"></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
