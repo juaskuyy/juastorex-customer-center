@@ -1,4 +1,4 @@
-const API = "https://api.juastorex.my.id";
+const API = "https://juastorex-customer-api.jhonyoga01.workers.dev";
 let currentOrder = null;
 
 const checkForm = document.getElementById("checkForm");
