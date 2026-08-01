@@ -51,7 +51,12 @@ claimForm.addEventListener("submit",async(event)=>{
   if(!currentOrder){setMessage(claimMessage,"Silakan cek order terlebih dahulu.","error");return}
   const reason=document.getElementById("claimReason").value.trim();const photo=claimPhoto.files?.[0];
   if(!reason||!photo){setMessage(claimMessage,"Alasan dan foto bukti kendala wajib diisi.","error");return}
-  const formData=new FormData();formData.append("order_code",currentOrder.code);formData.append("wa",currentOrder.wa);formData.append("reason",reason);formData.append("photo",photo);
+  const formData = new FormData();
+
+formData.append("order_code", currentOrder.code);
+formData.append("wa", currentOrder.wa);
+formData.append("problem", reason);
+formData.append("photo", photo);
   claimButton.disabled=true;claimButton.textContent="Mengirim foto...";setMessage(claimMessage,"Mohon tunggu, foto sedang dikirim.");
   try{
     const response=await fetch(`${API}/api/claims`,{method:"POST",body:formData});
