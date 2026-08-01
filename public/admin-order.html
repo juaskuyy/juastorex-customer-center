@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Order JuaStoreX</title>
+  <link rel="stylesheet" href="admin-order.css">
+</head>
+<body>
+  <main class="wrap">
+    <section id="loginBox" class="card">
+      <h1>Admin Order JuaStoreX</h1>
+      <input id="token" type="password" placeholder="Admin token">
+      <button id="loginBtn">Masuk</button>
+      <p id="loginMsg"></p>
+    </section>
+
+    <section id="panel" class="hidden">
+      <header>
+        <h1>Tambah Order</h1>
+        <button id="logoutBtn" class="secondary">Keluar</button>
+      </header>
+
+      <section class="card">
+        <div class="grid">
+          <label>Nomor WhatsApp<input id="wa" placeholder="0851..."></label>
+          <label>Produk<input id="product" placeholder="Netflix 1 Bulan"></label>
+          <label>Harga<input id="price" type="number" min="0" value="0"></label>
+          <label>Durasi produk (hari)<input id="duration" type="number" min="1" value="30"></label>
+          <label>Durasi garansi (hari)<input id="warranty" type="number" min="1" value="30"></label>
+        </div>
+
+        <label>Detail akun untuk dikirim ke WhatsApp
+          <textarea id="account" rows="6" placeholder="Email: ...&#10;Password: ...&#10;PIN: ..."></textarea>
+        </label>
+
+        <label>Catatan internal admin
+          <textarea id="note" rows="3"></textarea>
+        </label>
+
+        <button id="createBtn">Buat Order</button>
+        <p id="formMsg"></p>
+      </section>
+
+      <section id="resultCard" class="card hidden">
+        <h2>Order berhasil dibuat</h2>
+        <div id="resultData"></div>
+        <a id="waButton" class="button" target="_blank" rel="noopener">Kirim ke WhatsApp</a>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <h2>Data Order</h2>
+          <input id="search" placeholder="Cari kode, WA, atau produk">
+        </div>
+        <div id="orders"></div>
+      </section>
+    </section>
+  </main>
+  <script src="admin-order.js"></script>
+</body>
+</html>
