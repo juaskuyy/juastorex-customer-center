@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Klaim JuaStoreX</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="loginCard" class="card login-card">
+      <div class="brand">JS</div>
+      <p class="eyebrow">JUASTOREX ADMIN</p>
+      <h1>Panel Klaim Garansi</h1>
+      <p class="muted">Masukkan token admin.</p>
+      <form id="loginForm">
+        <label for="adminToken">Admin token</label>
+        <input id="adminToken" type="password" required>
+        <button type="submit">Masuk</button>
+      </form>
+      <p id="loginMessage" class="message"></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">JUASTOREX ADMIN</p>
+          <h1>Daftar Klaim</h1>
+        </div>
+        <button id="logoutButton" class="ghost small">Keluar</button>
+      </header>
+
+      <section class="stats">
+        <div class="stat card"><strong id="totalClaims">0</strong><span>Total klaim</span></div>
+        <div class="stat card"><strong id="waitingClaims">0</strong><span>Menunggu</span></div>
+        <div class="stat card"><strong id="processingClaims">0</strong><span>Diproses</span></div>
+        <div class="stat card"><strong id="finishedClaims">0</strong><span>Selesai</span></div>
+      </section>
+
+      <section class="card toolbar">
+        <input id="searchInput" placeholder="Cari kode, nama, WA, produk, kendala">
+        <select id="statusFilter">
+          <option value="">Semua status</option>
+          <option value="MENUNGGU">MENUNGGU</option>
+          <option value="DIPROSES">DIPROSES</option>
+          <option value="SELESAI">SELESAI</option>
+          <option value="DITOLAK">DITOLAK</option>
+        </select>
+        <button id="refreshButton" class="ghost">Refresh</button>
+      </section>
+
+      <section id="claimsList" class="claims-list"></section>
+      <p id="dashboardMessage" class="message"></p>
+    </section>
+  </main>
+
+  <template id="claimTemplate">
+    <article class="claim-card card">
+      <div class="claim-head">
+        <div>
+          <p class="claim-code"></p>
+          <h2 class="claim-product"></h2>
+        </div>
+        <span class="badge claim-status"></span>
+      </div>
+
+      <div class="detail-grid">
+        <div><small>Customer</small><strong class="claim-customer"></strong></div>
+        <div><small>WhatsApp</small><strong class="claim-wa"></strong></div>
+        <div><small>Dibuat</small><strong class="claim-created"></strong></div>
+        <div><small>ID Klaim</small><strong class="claim-id"></strong></div>
+      </div>
+
+      <div class="problem-box">
+        <small>Kendala</small>
+        <p class="claim-problem"></p>
+      </div>
+
+      <label>Status</label>
+      <select class="claim-status-select">
+        <option value="MENUNGGU">MENUNGGU</option>
+        <option value="DIPROSES">DIPROSES</option>
+        <option value="SELESAI">SELESAI</option>
+        <option value="DITOLAK">DITOLAK</option>
+      </select>
+
+      <label>Catatan admin</label>
+      <textarea class="claim-note" rows="4"></textarea>
+
+      <div class="actions">
+        <a class="wa-button" target="_blank" rel="noopener">Balas WhatsApp</a>
+        <button class="save-button">Simpan perubahan</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="admin.js"></script>
+</body>
+</html>
