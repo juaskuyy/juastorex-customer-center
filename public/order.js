@@ -20,6 +20,10 @@ fetch(`${API}/api/order?code=${encodeURIComponent(code)}&key=${encodeURIComponen
     document.getElementById("warrantyRemaining").textContent=
       o.warranty_remaining_days>=0?`${o.warranty_remaining_days} hari lagi`:"Garansi telah habis";
     document.getElementById("status").textContent=o.warranty_status;
+    const claimLink = document.getElementById("claimLink");
+
+claimLink.href =
+  `https://garansi.juastorex.my.id/?code=${encodeURIComponent(o.code)}&key=${encodeURIComponent(key)}`;
     document.getElementById("details").classList.remove("hidden");
   })
   .catch(e=>{
